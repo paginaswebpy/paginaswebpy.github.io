@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </head>
+
+    <body>
+        <section id="valentines-section">
+            <div class="container">
+                <div class="valentines">
+                    <div class="envelope"></div>
+                    <div class="front"></div>
+                    <div class="card">
+                        <div class="text">Feliz día del amor y la amistad</div>
+                        <div class="heart"></div>
+                    </div>
+                    <div class="hearts">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                        <div class="four"></div>
+                        <div class="five"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="shadow"></div>
+        </section>
+        <section id="gallery-section">
+            <h1>Si el tiempo me permitiera volver hacia el pasado, jamás cambiaría nada por miedo a perderte</h1>
+            <div class="gallery">
+                <div class="image">
+                    <img
+                        src="img/16438791291769.jpg"
+                        alt="Image 1"
+                        onclick="openModal('img/16438791291769.jpg', 'Lo mejor de mi vida es estar en la tuya')"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="img/5b2efc7b-1980-4482-bc3a-787b2e28503a_16-9-discover-aspect-ratio_default_0.jpg"
+                        alt="Image 2"
+                        onclick="openModal('img/5b2efc7b-1980-4482-bc3a-787b2e28503a_16-9-discover-aspect-ratio_default_0.jpg', 'Creaste magia en mi mente y en mi corazón, sin necesidad de ningún truco')"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="img/64ec69813a202cb053eebec7_parejas-sin-hijos-otra-forma-de-felicidad.png"
+                        alt="Image 3"
+                        onclick="openModal('img/64ec69813a202cb053eebec7_parejas-sin-hijos-otra-forma-de-felicidad.png', 'Siempre serás mi persona favorita en el mundo. Nunca habrá alguien que pueda generar tanto amor en mi')"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="img/istockphoto-1365865879-612x612.jpg"
+                        alt="Image 4"
+                        onclick="openModal('img/istockphoto-1365865879-612x612.jpg', 'Que sería de mi vida si no tuviera tu amor')"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="img/depositphotos_9725480-stock-photo-close-up-of-coulple-in.jpg"
+                        alt="Image 5"
+                        onclick="openModal('img/depositphotos_9725480-stock-photo-close-up-of-coulple-in.jpg', 'Solo tu presencia hace mi corazón feliz. ¡Te amo!')"
+                    />
+                </div>
+                <div class="image">
+                    <img
+                        src="img/habitos-parejas-felices-2.jpg"
+                        alt="Image 6"
+                        onclick="openModal('img/habitos-parejas-felices-2.jpg', 'Así tal como eres, me encantas')"
+                    />
+                </div>
+            </div>
+
+            <div id="modal" class="modal">
+                <span class="close" onclick="closeModal()">×</span>
+                <img id="modal-image" src="" alt="Modal Image" />
+                <div id="caption" class="caption"></div>
+            </div>
+            <h1>Tú no sabes el desorden de emociones que me provoca tu sonrisa</h1>
+
+            <h2>Te dedico esta cancion:</h2>
+            <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/28GCbKgjlVD9eDmasGbe0T?utm_source=generator"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+            ></iframe>
+
+            <div class="cartadamor">
+                <h1>Carta dedicatoria</h1>
+                <h2>
+                    En este día especial, quiero expresar todo lo que siento por ti. No hay palabras suficientes para
+                    describir la magnitud de mi amor, pero hoy, en el Día de San Valentín, quiero intentarlo. Desde el
+                    momento en que entraste en mi vida, todo cambió. Tu presencia ilumina mis días y llena mi corazón de
+                    alegría. Cada risa compartida, cada mirada cruzada, son tesoros que atesoro en lo más profundo de mi
+                    ser. Eres la razón por la que mis días son más brillantes y mis noches más cálidas.
+                </h2>
+                <h2>
+                    Eres mi confidente, mi compañero de vida, mi apoyo incondicional. Cada día a tu lado es un regalo, y
+                    hoy, en San Valentín, quiero agradecerte por ser mi amor, mi amigo y mi todo. Tu amor me hace sentir
+                    completo, y estoy agradecido por cada momento que compartimos.
+                </h2>
+                <br />
+                <h2 style="text-align: right">Te quiero, Nombre</h2>
+            </div>
+        </section>
+        <script>
+            $(document).ready(function () {
+                $('.text').hide()
+
+                function toggleTextVisibility() {
+                    $('.text').fadeToggle('slow')
+                }
+
+                // For desktop
+                $('#valentines-section')
+                    .mouseenter(function () {
+                        $('.card')
+                            .stop()
+                            .animate(
+                                {
+                                    top: '-90px',
+                                },
+                                'slow',
+                                function () {
+                                    toggleTextVisibility()
+                                },
+                            )
+                    })
+                    .mouseleave(function () {
+                        toggleTextVisibility()
+                        $('.card').stop().animate(
+                            {
+                                top: 0,
+                            },
+                            'slow',
+                        )
+                    })
+            })
+        </script>
+
+        <script>
+            function openModal(imageSrc, imageAlt) {
+                const modal = document.getElementById('modal')
+                const modalImg = document.getElementById('modal-image')
+                const captionText = document.getElementById('caption')
+
+                modal.style.display = 'block'
+                modalImg.src = imageSrc
+                modalImg.alt = imageAlt
+                captionText.innerHTML = imageAlt
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('modal')
+                modal.style.display = 'none'
+            }
+        </script>
+    </body>
+</html>
